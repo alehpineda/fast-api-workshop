@@ -1,9 +1,6 @@
 name: FastAPI CI/CD
 
-on: 
- push:
-  branches:
-   - master
+on: pull_request
 
 jobs:
 
