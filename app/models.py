@@ -9,3 +9,9 @@ class ModelName(str, Enum):
     alexnet = "alexnet"
     resnet = "resnet"
     lenet = "lenet"
+
+
+class Items:
+    item_name: str
+    item_description: str
+    price: int

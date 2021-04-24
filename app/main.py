@@ -16,7 +16,7 @@ async def root():
 @app.get("/items/{item_id}")
 async def get_item(item_id: int):
     """
-    Path parameters
+    Path parameters - variables declaradas en el path de la url
     """
     return {"item_id": item_id}
 
@@ -33,3 +33,14 @@ async def get_model(model_name: ModelName):
         return {"model_name": model_name, "mensaje": "LeCNN todas las imgs!"}
 
     return {"model_name": model_name, "mensaje": "Ten los residuos"}
+
+
+fake_items_db = []
+
+
+@app.post("/items/")
+async def post_items(item_name: str, item_price: int):
+    fake_items_db.append(
+        {"item_name": item_name, "item_price": item_price}
+    )
+    return fake_items_db
