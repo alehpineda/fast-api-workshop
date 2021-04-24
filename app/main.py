@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 
-from app.models import ModelName
+from app.models import ModelName, Pokemon
 
 app = FastAPI()
 
@@ -44,3 +44,8 @@ async def post_items(item_name: str, item_price: int):
         {"item_name": item_name, "item_price": item_price}
     )
     return fake_items_db
+
+
+@app.post("/pokemon/")
+async def post_pokemon(pokemon: Pokemon):
+    return pokemon
