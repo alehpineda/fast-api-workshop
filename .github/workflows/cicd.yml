@@ -50,3 +50,19 @@ jobs:
       with:
         name: pytest-coverage-report
         path: reports/pytest/
+
+  docker_build:
+    name: Build Docker Image
+    needs: pytest
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      - name: Build and push Docker images
+        uses: docker/build-push-action@v1
+        with:
+          username: ${{ secrets.GCR_USERNAME }}
+          password: ${{ secrets.GCR_PASSWORD }}
+          registry: ghcr.io
+          repository: alehpineda/fast-api-workshop
+          tags: latest
