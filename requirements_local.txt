@@ -1,0 +1,10 @@
+fastapi
+flake8
+flake8-html
+black
+uvicorn
+requests
+pytest
+pytest-cov
+pytest-html
+pytest-sugar
