@@ -52,6 +52,8 @@ jobs:
         path: reports/pytest/
 
   docker_ci:
+    name: Build & Push Image
+    needs: pytest
     runs-on: ubuntu-latest
     steps:
       - name: Set up QEMU
