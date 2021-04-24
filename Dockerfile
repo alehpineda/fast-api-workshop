@@ -1,7 +1,5 @@
 FROM tiangolo/uvicorn-gunicorn-fastapi:python3.8
 
-LABEL org.opencontainers.image.source https://github.com/alehpineda/fast-api-workshop
-
 COPY ./app /app/app
 
 RUN useradd -m 10000

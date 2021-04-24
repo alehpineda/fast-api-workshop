@@ -6,7 +6,7 @@ Fast-api workshop para Flisol 2021
 - Instalar python
 - Instalar docker
 - Instalar git
-- Cuenta en github
+- Cuenta en Github
 - Cuenta en Heroku
 
 ## Instrucciones:
