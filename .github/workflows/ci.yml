@@ -1,9 +1,6 @@
-name: FastAPI CI/CD
+name: FastAPI CI
 
-on: 
- push:
-  branches:
-   - master
+on: pull_request
 
 jobs:
 
@@ -76,18 +73,3 @@ jobs:
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/fast-api-workshop:latest
       - name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
-
-  heroku_deploy:
-    name: Deploy Image
-    needs: docker_ci
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v2
-      - uses: akhileshns/heroku-deploy@v3.12.12 # This is the action
-        with:
-          heroku_api_key: ${{ secrets.HEROKU_API_KEY }}
-          heroku_app_name: ${{ secrets.HEROKU_APP_NAME }} #Must be unique in Heroku
-          heroku_email: ${{ secrets.HEROKU_EMAIL }}
-          usedocker: true
-          healthcheck: "https://${{ secrets.HEROKU_APP_NAME }}.herokuapp.com/"
-          delay: 10
